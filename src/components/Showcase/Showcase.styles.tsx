@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   gap: 40px;
-  padding: 50px 20px;
+  padding: 90px 20px;
   ${responsive(
     {
       flexDirection: "column",
