@@ -25,6 +25,7 @@ export const Right = styled(Flex)`
   justify-content: space-between;
   gap: 30px;
   color: ${(p) => p.theme.blackPrimary};
+  position: relative;
 `;
 export const NavLinks = styled.nav`
   display: flex;
@@ -36,8 +37,8 @@ export const NavLinks = styled.nav`
     {
       transition: "left .4s",
       position: "absolute",
-      top: "80px",
-      width: "100%",
+      top: "50px",
+      width: "100vw",
       height: "calc(100vh - 80px)",
       flexDirection: "column",
       justifyContent: "center",

@@ -56,7 +56,7 @@ export const Text = styled.p`
 `;
 
 export const Right = styled.div`
-  width: 50%;
+  width: 100%;
   max-width: 550px;
   position: relative;
   z-index: 2;

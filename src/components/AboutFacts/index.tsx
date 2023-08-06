@@ -5,7 +5,7 @@ import { AiOutlineComment } from "react-icons/ai";
 import FunFactItem from "../FunFactItem";
 import { useTranslation } from "react-i18next";
 
-interface IFacts {
+export interface IFacts {
   icon: React.ReactNode;
   number: string;
   title: string;
@@ -47,7 +47,7 @@ const AboutFacts: React.FC = () => {
         <Heading>{t("Fun Facts About Our Agency")}</Heading>
         <Body>
           {facts.map((f, i) => (
-            <FunFactItem {...f} key={i} />
+            <FunFactItem {...f} key={i} delay={(i + 1) / 10} />
           ))}
         </Body>
       </Container>

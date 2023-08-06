@@ -3,6 +3,9 @@ import { responsive } from "../../utils/responsive";
 
 export const Container = styled.div`
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
   padding: 20px;
   color: ${(p) => p.theme.blackPrimary};
   span {

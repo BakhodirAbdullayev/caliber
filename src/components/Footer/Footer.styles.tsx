@@ -17,8 +17,10 @@ export const FooterWrapper = styled.footer`
     ${responsive(
       {
         gridTemplateColumns: "2fr 1fr",
+        juctifyContent: "center",
+
         ".social": {
-          gridColumn: "span 2",
+          width: "100%",
           alignItems: "center",
           "&>div": { maxWidth: "100%", gridTemplateColumns: "repeat(6, 50px)" },
         },
@@ -41,7 +43,7 @@ export const FooterWrapper = styled.footer`
           },
         },
       },
-      500
+      600
     )}
   }
 `;
@@ -94,6 +96,12 @@ export const Column = styled.div`
       }
     }
   }
+  ${responsive(
+    {
+      alignItems: "center",
+    },
+    600
+  )}
 `;
 export const Heading = styled.h3`
   font-size: 22px;

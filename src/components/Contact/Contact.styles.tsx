@@ -40,6 +40,7 @@ export const CartsWrapper = styled.div`
 `;
 
 export const Details = styled.div`
+  overflow: hidden;
   margin-top: 80px;
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 600px));
@@ -56,6 +57,7 @@ export const Details = styled.div`
 export const FormWrapper = styled.div``;
 export const Map = styled.div`
   width: 100%;
+  height: 100%;
   border-radius: 5px;
   background-color: ${(p) => p.theme.blackSecondary};
   iframe {

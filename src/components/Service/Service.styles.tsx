@@ -29,6 +29,7 @@ export const Box = styled.div`
   )}
 `;
 export const Pricing = styled.div`
+  overflow-y: hidden;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

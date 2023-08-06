@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import PortfolioCart from "../PortfolioCart";
 import SectionTitle from "../SectionTitle";
 import { Wrapper } from "./Portfolio.styles";
+import { motion } from "framer-motion";
 
 export interface ICart {
   image: string;
@@ -55,12 +56,48 @@ const Portfolio: React.FC = () => {
         title={t("portfolio")}
       ></SectionTitle>
       <Wrapper className="container">
-        {carts.map((c, i) => (
-          <PortfolioCart key={i} {...c} />
-        ))}
+        {carts.map((c, i) => {
+          return i % 3 === 0 ? (
+            <Animation key={i} delay={0.15} x={100}>
+              <PortfolioCart {...c} />
+            </Animation>
+          ) : i % 3 === 1 ? (
+            <Animation key={i} delay={0.5}>
+              <PortfolioCart {...c} />
+            </Animation>
+          ) : (
+            <Animation key={i} delay={0.15} x={-100}>
+              <PortfolioCart {...c} />
+            </Animation>
+          );
+        })}
       </Wrapper>
     </>
   );
 };
 
 export default Portfolio;
+const Animation: React.FC<{
+  children: React.ReactNode;
+  delay: number;
+  x?: number;
+}> = ({ children, delay, x }) => (
+  <motion.div
+    initial={{
+      x: x ? x : 0,
+      opacity: 0,
+    }}
+    whileInView={{
+      y: 0,
+      x: 0,
+      opacity: 1,
+    }}
+    transition={{
+      duration: 0.6,
+      delay: delay,
+    }}
+    viewport={{ once: true }}
+  >
+    {children}
+  </motion.div>
+);

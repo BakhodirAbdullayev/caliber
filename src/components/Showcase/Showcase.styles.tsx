@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: space-around;
   gap: 40px;
   padding: 90px 20px;
+  overflow: hidden;
   ${responsive(
     {
       flexDirection: "column",
@@ -22,7 +23,7 @@ export const Left = styled.div`
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
-  width: 50%;
+  width: 100%;
   color: ${(p) => p.theme.blackPrimary};
   ${responsive(
     {
@@ -88,7 +89,7 @@ export const BtnGroup = styled.div`
 `;
 
 export const Right = styled.div`
-  width: 50%;
+  width: 100%;
   img {
     /* max-width: 500px; */
     width: 100%;

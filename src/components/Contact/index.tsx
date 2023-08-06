@@ -5,6 +5,7 @@ import { MdPhone, MdMail, MdLocationPin } from "react-icons/md";
 import ContactCart from "../ContactCart";
 import ContactForm from "../ContactForm";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 type LinkType = {
   text: string;
@@ -69,24 +70,30 @@ const Contact: React.FC = () => {
       <div className="container">
         <CartsWrapper>
           {carts.map((c, i) => (
-            <ContactCart key={i} {...c} />
+            <Animation key={i} delay={0.3} y={30}>
+              <ContactCart {...c} />
+            </Animation>
           ))}
         </CartsWrapper>
         <Details>
-          <FormWrapper>
-            <ContactForm />
-          </FormWrapper>
-          <Map>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11986.685584508967!2d69.223273!3d41.3160117!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b685b689e13%3A0xaf4cdf526e02f5e7!2sHilton%20Tashkent%20City!5e0!3m2!1sen!2s!4v1690910914106!5m2!1sen!2s"
-              width={"100%"}
-              height={"100%"}
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </Map>
+          <Animation delay={0.3} x={40}>
+            <FormWrapper>
+              <ContactForm />
+            </FormWrapper>
+          </Animation>
+          <Animation delay={0.3} x={-40}>
+            <Map>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11986.685584508967!2d69.223273!3d41.3160117!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b685b689e13%3A0xaf4cdf526e02f5e7!2sHilton%20Tashkent%20City!5e0!3m2!1sen!2s!4v1690910914106!5m2!1sen!2s"
+                width={"100%"}
+                height={"100%"}
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </Map>
+          </Animation>
         </Details>
       </div>
     </>
@@ -94,3 +101,29 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+const Animation: React.FC<{
+  children: React.ReactNode;
+  delay: number;
+  x?: number;
+  y?: number;
+}> = ({ children, delay, x, y }) => (
+  <motion.div
+    initial={{
+      y: y ? y : 0,
+      x: x ? x : 0,
+      opacity: 0,
+    }}
+    whileInView={{
+      y: 0,
+      x: 0,
+      opacity: 1,
+    }}
+    transition={{
+      duration: 0.6,
+      delay: delay,
+    }}
+    viewport={{ once: true }}
+  >
+    {children}
+  </motion.div>
+);

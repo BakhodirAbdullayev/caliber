@@ -113,9 +113,15 @@ const Service: React.FC = () => {
         ))}
       </Box>
       <Pricing>
-        {prices.map((p, i) => (
-          <PriceCart key={i} {...p} />
-        ))}
+        {prices.map((p, i) => {
+          return i % 3 === 0 ? (
+            <PriceCart key={i} {...p} x={-80} />
+          ) : i % 3 === 1 ? (
+            <PriceCart key={i} {...p} y={100} />
+          ) : (
+            <PriceCart key={i} {...p} x={80} />
+          );
+        })}
       </Pricing>
     </div>
   );

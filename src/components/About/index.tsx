@@ -19,8 +19,9 @@ const About: React.FC = () => {
           "Our foundation rests on a customer-centric philosophy, where every decision, every innovation, and every interaction revolves around elevating experiences and fostering growth."
         )}
       </SectionTitle>
-      <div className="container">
+      <div className="container" style={{ overflow: "hidden" }}>
         <AboutContent
+          xValue={-100}
           position="left"
           heading={t(
             "We are branding strategy service from 2022 for our customers."
@@ -31,6 +32,7 @@ const About: React.FC = () => {
           image={about1}
         />
         <AboutContent
+          xValue={100}
           position="right"
           heading={t("Get Started with our software")}
           text={t(
@@ -39,6 +41,7 @@ const About: React.FC = () => {
           image={about2}
         />
         <AboutContent
+          xValue={-100}
           position="left"
           heading={t("Solve your problem faster")}
           text={t(
