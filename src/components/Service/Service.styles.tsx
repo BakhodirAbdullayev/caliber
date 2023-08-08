@@ -30,6 +30,7 @@ export const Box = styled.div`
 `;
 export const Pricing = styled.div`
   overflow-y: hidden;
+  padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
