@@ -3,7 +3,7 @@ import { responsive } from "../../utils/responsive";
 
 export const Wrapper = styled.div`
   margin-top: 70px;
-  padding: 10px;
+  padding: 10px 10px 20px;
   display: grid;
   justify-content: center;
   align-items: center;
