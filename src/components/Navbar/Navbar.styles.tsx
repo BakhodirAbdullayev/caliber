@@ -44,7 +44,7 @@ export const NavLinks = styled.nav`
       justifyContent: "center",
       zIndex: "10000",
     },
-    700
+    800
   )}
 `;
 export const NavLink = styled.a`
@@ -97,7 +97,7 @@ export const BtnGroup = styled(Flex)`
       {
         display: "block",
       },
-      700
+      800
     )};
   }
   .lang {
