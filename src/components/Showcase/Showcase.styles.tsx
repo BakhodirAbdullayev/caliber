@@ -98,8 +98,9 @@ export const Right = styled.div`
   }
   ${responsive(
     {
-      width: "auto",
-      maxWidth: "600px",
+      //width: "auto",
+      //maxWidth: "600px",
+      display: "none";
     },
     850
   )}
