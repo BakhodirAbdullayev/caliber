@@ -7,18 +7,18 @@ import { theme } from "./utils/theme";
 export interface IContext {
   mode: "light" | "dark";
   setMode: React.Dispatch<React.SetStateAction<"light" | "dark">>;
-  active: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
+  // active: string;
+  // setActive: React.Dispatch<React.SetStateAction<string>>;
 }
 export const DataContext = createContext<IContext | null>(null);
 function App() {
   const [mode, setMode] = useState<"light" | "dark">("light");
-  const [active, setActive] = useState<string>("home");
+  // const [active, setActive] = useState<string>("home");
 
   return (
     <>
       <ThemeProvider theme={theme[mode]}>
-        <DataContext.Provider value={{ active, setActive, mode, setMode }}>
+        <DataContext.Provider value={{ mode, setMode }}>
           <Layout>
             <Home />
           </Layout>

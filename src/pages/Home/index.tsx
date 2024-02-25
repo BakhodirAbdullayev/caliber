@@ -1,5 +1,5 @@
 import React from "react";
-import { DataContext } from "../../App";
+// import { DataContext } from "../../App";
 import About from "../../components/About";
 import Contact from "../../components/Contact";
 import Portfolio from "../../components/Portfolio";
@@ -13,25 +13,29 @@ import {
 } from "./Home.styles";
 
 const Home: React.FC = () => {
-  const mydata = React.useContext(DataContext);
+  // const mydata = React.useContext(DataContext);
 
-  const scroll = () => {
-    const sections = document.querySelectorAll("section");
-    sections.forEach((sec) => {
-      const top = window.scrollY;
-      const offset = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute("id");
+  // useEffect(() => {
+  //   const scroll = () => {
+  //     const sections = document.querySelectorAll("section");
+  //     sections.forEach((sec) => {
+  //       const top = window.scrollY;
+  //       const offset = sec.offsetTop;
+  //       const height = sec.offsetHeight;
+  //       const id = sec.getAttribute("id");
 
-      if (top >= offset && top < offset + height - 80) {
-        if (typeof id === "string") {
-          mydata?.setActive(id);
-        }
-      }
-    });
-  };
-  window.onscroll = () => scroll();
-
+  //       if (top >= offset && top < offset + height - 200) {
+  //         if (typeof id === "string") {
+  //           mydata?.setActive(id);
+  //         }
+  //       }
+  //     });
+  //   };
+  //   window.onscroll = () => scroll();
+  //   scroll();
+  //   return (window.onscroll = () => scroll());
+  // }),
+  [];
   return (
     <HomeContainer>
       <SectionWrapper id="home">

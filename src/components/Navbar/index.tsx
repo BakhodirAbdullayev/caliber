@@ -14,13 +14,7 @@ import {
   Wrapper,
 } from "./Navbar.styles";
 
-const linksArray: string[] = [
-  "home",
-  "about",
-  "services",
-  "portfolio",
-  "contact",
-];
+const linksArray: string[] = ["", "about", "services", "portfolio", "contact"];
 
 const langs: string[] = ["en", "ru", "uz"];
 
@@ -28,6 +22,16 @@ const Navbar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const mydata = useContext(DataContext);
   const ref = useRef<HTMLDivElement>(null);
+
+  const [hash, setHash] = useState(window.location.hash.replace("#", ""));
+  // useEffect(() => {
+  //   const getHash = () => {
+  //     setHash(window.location.hash.replace("#", ""));
+  //   };
+  //   window.addEventListener("click", getHash);
+  //   getHash();
+  //   return window.addEventListener("click", getHash);
+  // }, []);
 
   const { t, i18n } = useTranslation();
 
@@ -63,7 +67,7 @@ const Navbar: React.FC = () => {
               duration: 0.5,
             }}
           >
-            <a href="/" onClick={() => mydata?.setActive("home")}>
+            <a href="/">
               <Logo type="main" />
             </a>
           </motion.div>
@@ -96,12 +100,12 @@ const Navbar: React.FC = () => {
               >
                 {linksArray.map((link, idx) => (
                   <NavLink
-                    className={mydata?.active === link ? "active" : "nonActive"}
+                    className={hash === link ? "active" : "nonActive"}
                     href={"#" + link}
                     key={idx}
-                    onClick={() => mydata?.setActive(link)}
+                    onClick={() => setHash(link)}
                   >
-                    {t(link)}
+                    {link === "" ? t("home") : t(link)}
                   </NavLink>
                 ))}
               </NavLinks>
